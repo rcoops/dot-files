@@ -20,6 +20,7 @@ return {
 
     -- Add your own debuggers here
     'leoluz/nvim-dap-go',
+    'mfussenegger/nvim-dap-python',
   },
   config = function()
     local dap = require 'dap'
@@ -39,11 +40,13 @@ return {
       ensure_installed = {
         -- Update this to ensure that you have the debuggers for the langs you want
         'delve',
+        'debugpy',
       },
     }
 
     -- Basic debugging keymaps, feel free to change to your liking!
     vim.keymap.set('n', '<F5>', dap.continue, { desc = 'Debug: Start/Continue' })
+    vim.keymap.set('n', '<leader><F5>', dap.terminate, { desc = 'Debug: Terminate' })
     vim.keymap.set('n', '<F1>', dap.step_into, { desc = 'Debug: Step Into' })
     vim.keymap.set('n', '<F2>', dap.step_over, { desc = 'Debug: Step Over' })
     vim.keymap.set('n', '<F3>', dap.step_out, { desc = 'Debug: Step Out' })
@@ -83,5 +86,6 @@ return {
 
     -- Install golang specific config
     require('dap-go').setup()
+    require('dap-python').setup()
   end,
 }
