@@ -571,14 +571,12 @@ local servers = {
   -- clangd = {},
   -- gopls = {},
   pyright = {
-    filetypes = 'python',
   },
   -- rust_analyzer = {},
   -- tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
   lua_ls = {
-    filetypes = 'lua',
     Lua = {
       workspace = { checkThirdParty = false },
       telemetry = { enable = false },
