@@ -7,6 +7,7 @@
 # zsh settings
 !.zsh*
 !.zprofile
+!.p10k.zsh
 .zshrc.*
 .zsh_history
 
