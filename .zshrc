@@ -84,7 +84,5 @@ source ~/.zsh_custom_functions
 eval "$(fnm env --use-on-cd --version-file-strategy=recursive)"
 
 # sdkman
-source "$HOME/.sdkman/bin/sdkman-init.sh"
+[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-# Created by `pipx` on 2023-09-12 13:44:12
-export PATH="$PATH:/Users/rickcooper/.local/bin"
