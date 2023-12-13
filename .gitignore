@@ -1,6 +1,9 @@
 /*
 !.gitignore
 
+# personal notes
+!cli-cheatsheat.md
+
 # tmux config
 !.tmux.conf
 

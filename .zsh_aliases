@@ -1,18 +1,37 @@
-alias vi="vim"
+# neovim
+alias vi="nvim"
+alias vim="nvim"
+
+# navigation
 alias st="cd \"$REPOS_ROOT/smarter-tariff\""
 alias ves="cd $VES_ROOT"
-alias zshcfg="vi ~/.zshrc"
-alias ggpm="gcm && ggl"
+alias lscr="cd ~/bin/scripts"
+
+# config files
+alias zshc="vi ~/.zshrc"
+alias nvc="cd ~/.config/nvim && nvim ."
+alias omzplugins="echo $plugins | sed 's/ /\n/g'" # list omz plugins
+
+# work tokens
 alias td="upside-auth token --env development"
 alias tp="upside-auth token --env production"
-alias pv="flake8 && black --check . && isort --check-only . && pytest"
-alias lscr="cd ~/bin/scripts"
+alias te='echo "$UPSIDE_ACCESS_TOKEN_ENV"'
+
+# cli re-maps
 alias less="bat"
 alias ls="exa"
 alias du="dust"
-alias gbc="gb --show-current"
-alias te='echo "$UPSIDE_ACCESS_TOKEN_ENV"'
+alias grep="rg"
+alias top="ytop"
+alias clidocs="cat ~/.clidocs"
+
+# git
+alias ggpm="gcm && ggl" # checkout master and pull
+alias gbc="gb --show-current" # show current branch
+alias git_remote_sshify="git remote set-url origin $(git remote get-url origin | sed -r 's/https:\/\/([^/]+)\//git@\1:/')" # switch remote branch from http to ssh
+
+# python & virtual envs
 alias venv_clean="pip freeze --exclude-editable | grep -v \"wheel\" | xargs pip uninstall -y"
 alias venv_refresh="venv_clean && pip install wheel && pip install -e .'[dev,test]'"
-alias git_remote_sshify="git remote set-url origin $(git remote get-url origin | sed -r 's/https:\/\/([^/]+)\//git@\1:/')"
+alias pv="flake8 && black --check . && isort --check-only . && pytest"
 

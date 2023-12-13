@@ -1,4 +1,4 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Enabhjj==le Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
@@ -35,22 +35,32 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(
   1password
   aws
+  battery
   bgnotify
   brew
   command-not-found
   deno
   docker
   fd
+  fnm
   git
   gh
   isodate
   kubectx
   kubectl
   macos
+  node
   npm
+  pip
+  python
   pyenv
+  rust
   sdk
+  systemadmin
   thefuck
+  tmux
+  ubuntu
+  urltools
   vscode
   zsh-interactive-cd
   zsh-syntax-highlighting
@@ -66,6 +76,9 @@ source ~/.zsh_custom_functions
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # fnm init (fast node manager)
 eval "$(fnm env --use-on-cd --version-file-strategy=recursive)"

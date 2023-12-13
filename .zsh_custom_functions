@@ -24,3 +24,8 @@ function fa {
   alias | grep "${@}"
 }
 
+function pr_arr {
+  array="$1"
+  printf '%s\n' "${array[@]}"
+}
+
