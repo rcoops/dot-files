@@ -1,0 +1,18 @@
+alias vi="vim"
+alias st="cd \"$REPOS_ROOT/smarter-tariff\""
+alias ves="cd $VES_ROOT"
+alias zshcfg="vi ~/.zshrc"
+alias ggpm="gcm && ggl"
+alias td="upside-auth token --env development"
+alias tp="upside-auth token --env production"
+alias pv="flake8 && black --check . && isort --check-only . && pytest"
+alias lscr="cd ~/bin/scripts"
+alias less="bat"
+alias ls="exa"
+alias du="dust"
+alias gbc="gb --show-current"
+alias te='echo "$UPSIDE_ACCESS_TOKEN_ENV"'
+alias venv_clean="pip freeze --exclude-editable | grep -v \"wheel\" | xargs pip uninstall -y"
+alias venv_refresh="venv_clean && pip install wheel && pip install -e .'[dev,test]'"
+alias git_remote_sshify="git remote set-url origin $(git remote get-url origin | sed -r 's/https:\/\/([^/]+)\//git@\1:/')"
+

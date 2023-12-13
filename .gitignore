@@ -1,4 +1,21 @@
-tags
-test.sh
-.luarc.json
-nvim
+/*
+!.gitignore
+
+# tmux config
+!.tmux.conf
+
+# zsh settings
+!.zsh*
+!.zprofile
+.zshrc.*
+.zsh_history
+
+# iterm profile
+!iterm.json
+
+
+# nvim config
+!/.config
+/.config/*
+!/.config/nvim
+

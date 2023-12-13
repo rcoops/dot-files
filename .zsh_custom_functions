@@ -1,0 +1,26 @@
+function tds {
+  export UPSIDE_ACCESS_TOKEN="$(td)"
+  export UPSIDE_ACCESS_TOKEN_ENV="development"
+}
+
+function tps {
+  export UPSIDE_ACCESS_TOKEN="$(tp)"
+  export UPSIDE_ACCESS_TOKEN_ENV="production"
+}
+
+function ggrbm {
+  ggpm && git checkout - && grbi "$(git_main_branch)"
+}
+
+function ggc_cr {
+  GIT_SSH_COMMAND='ssh -i ~/.ssh/id_ed25519-kfcodereviewer -o IdentitiesOnly=yes' git clone "$@"
+}
+
+function venv_purge {
+  pyenv uninstall --force "$(pyenv local)" && rm .venv .python-version
+}
+
+function fa {
+  alias | grep "${@}"
+}
+
