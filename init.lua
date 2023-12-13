@@ -334,6 +334,7 @@ end, { desc = 'Toggle relative line numbers' })
 
 -- Fugitive git status
 vim.keymap.set('n', '<leader>gs', vim.cmd.Git, { desc = '[G]it [S]tatus' })
+vim.keymap.set('n', '<leader>gp', vim.cmd.Git, { desc = '[G]it [P]ush' })
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
