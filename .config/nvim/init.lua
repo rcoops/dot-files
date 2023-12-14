@@ -60,6 +60,20 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+local function set_cwd_to_opened()
+  local current_dir = vim.fn.getcwd()
+  local args = vim.v.argv
+  if vim.fn.stridx(current_dir, "..") ~= -1 then
+    opened_dir = vim.fn.resolve(vim.fn.getcwd()  .. '/' .. args[#args])
+  else
+    opened_dir = args[#args]
+  end
+  if vim.fn.isdirectory(opened_dir) == 1 then
+    current_dir = opened_dir
+  end
+  vim.api.nvim_set_current_dir(current_dir)
+end
+set_cwd_to_opened()
 -- [[ Configure plugins ]]
 -- NOTE: Here is where you install your plugins.
 --  You can configure plugins using the `config` key.
