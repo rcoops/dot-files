@@ -29,3 +29,19 @@ function pr_arr {
   printf '%s\n' "${array[@]}"
 }
 
+
+function auth_policy_for_user {
+  # check if first argument provided
+  [[ -z "$1" ]] && echo "No email or user resource provided" && exit 1
+
+  COMMAND_USERNAME="$1"
+
+  if [[ "$COMMAND_USERNAME" =~ ^.+@.+$ ]]; then
+    USER_POLICY="$(upside-auth-user-summary-by-email "$(te)" "$COMMAND_USERNAME" no | jq -r '.policyAssignments[0][20:]')"
+  else
+    USER_POLICY="$(upside-auth-user-summary "$(te)" "$COMMAND_USERNAME" no | jq -r '.policyAssignments[0][20:]')"
+  fi
+
+  upside-auth-managed-policy-describe "$(te)" "$USER_POLICY" no | jq '.'
+}
+
