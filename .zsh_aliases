@@ -3,7 +3,9 @@ alias vi="nvim"
 alias vim="nvim"
 
 # navigation
+alias repos="cd $REPOS_ROOT"
 alias st="cd \"$REPOS_ROOT/smarter-tariff\""
+alias its="cd \"$REPOS_ROOT/interview-test-submissions\""
 alias ves="cd $VES_ROOT"
 alias lscr="cd ~/bin/scripts"
 
