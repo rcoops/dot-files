@@ -1,9 +1,9 @@
-function tds {
+function std {
   export UPSIDE_ACCESS_TOKEN="$(td)"
   export UPSIDE_ACCESS_TOKEN_ENV="development"
 }
 
-function tps {
+function stp {
   export UPSIDE_ACCESS_TOKEN="$(tp)"
   export UPSIDE_ACCESS_TOKEN_ENV="production"
 }
