@@ -65,7 +65,7 @@ plugins=(
   zsh-interactive-cd
   zsh-syntax-highlighting
   zsh-history-substring-search
- node)
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -85,4 +85,8 @@ eval "$(fnm env --use-on-cd --version-file-strategy=recursive)"
 
 # sdkman
 [ -s "$HOME/.sdkman/bin/sdkman-init.sh" ] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+
+# gvm - go version manager
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
