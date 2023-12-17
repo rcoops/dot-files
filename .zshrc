@@ -74,14 +74,14 @@ source $ZSH/oh-my-zsh.sh
 source ~/.zsh_aliases
 source ~/.zsh_custom_functions
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
 # fnm init (fast node manager)
-eval "$(fnm env --use-on-cd --version-file-strategy=recursive)"
+eval "$(fnm env --use-on-cd --version-file-strategy=recursive)" > /dev/null 2>&1
 
 # sdkman
 [ -s "$HOME/.sdkman/bin/sdkman-init.sh" ] && source "$HOME/.sdkman/bin/sdkman-init.sh"
