@@ -29,6 +29,12 @@ function pr_arr {
   printf '%s\n' "${array[@]}"
 }
 
+function ls_path {
+  IFS=':' read -rA PATH_LINES <<< "$PATH"
+
+  for LINE in "${PATH_LINES[@]}"; do echo "$LINE"; done
+}
+
 
 function auth_policy_for_user {
   # check if first argument provided
