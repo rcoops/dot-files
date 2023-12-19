@@ -603,6 +603,10 @@ local servers = {
   ruff_lsp = {
   },
   pyright = {
+    python = {
+      venvPath = '.',
+      venv = '.venv',
+    }
   },
   -- rust_analyzer = {},
   -- tsserver = {},
