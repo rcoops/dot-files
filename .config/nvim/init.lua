@@ -63,6 +63,7 @@ vim.opt.rtp:prepend(lazypath)
 local function set_cwd_to_opened()
   local current_dir = vim.fn.getcwd()
   local args = vim.v.argv
+  local opened_dir
   if vim.fn.stridx(current_dir, "..") ~= -1 then
     opened_dir = vim.fn.resolve(vim.fn.getcwd()  .. '/' .. args[#args])
   else
@@ -274,6 +275,11 @@ require('lazy').setup({
   },
 
   'github/copilot.vim',
+
+  {
+    'folke/trouble.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+  },
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
@@ -601,12 +607,29 @@ local servers = {
   -- clangd = {},
   -- gopls = {},
   ruff_lsp = {
+    init_options = {
+      settings = {
+        args = {
+          select = {"E", "F", "I"},
+          interpreter = {".venv/bin/python"},
+          exclude = {'.venv/**/*'},
+          src = {"src", "tests"},
+        },
+      },
+    },
   },
   pyright = {
-    python = {
-      venvPath = '.',
-      venv = '.venv',
-    }
+    settings = {
+      python = {
+        pythonPath = '.venv/bin/python',
+        exclude = {'.venv/**/*'},
+        analysis = {
+          autoSearchPaths = true,
+          useLibraryCodeForTypes = true,
+          diagnosticMode = 'openFilesOnly',
+        },
+      },
+    },
   },
   -- rust_analyzer = {},
   -- tsserver = {},
