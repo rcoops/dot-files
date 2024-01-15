@@ -10,4 +10,5 @@ export PATH="$HOME/.local/share/fnm:$HOME/.fnm:$CUSTOM_SCRIPTS_ROOT:$VES_SCRIPTS
 export PATH="$HOME/squashfs-root/usr/bin:$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH"
 
 eval "$(pyenv init --path)"
+eval "$(pyenv virtualenv-init -)"
 

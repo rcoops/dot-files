@@ -81,7 +81,13 @@ source ~/.zsh_custom_functions
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # fnm init (fast node manager)
-eval "$(fnm env --use-on-cd --version-file-strategy=recursive)" > /dev/null 2>&1
+if [ "$(uname -s)" = "Darwin" ]; then
+  FNM_LOC="$HOME/Library/Application Support"
+else
+  FNM_LOC="$HOME/.local/share"
+fi
+export PATH="$FNM_LOC/fnm:$PATH"
+eval "`fnm env --use-on-cd --version-file-strategy=recursive`"
 
 # sdkman
 [ -s "$HOME/.sdkman/bin/sdkman-init.sh" ] && source "$HOME/.sdkman/bin/sdkman-init.sh"
@@ -89,4 +95,8 @@ eval "$(fnm env --use-on-cd --version-file-strategy=recursive)" > /dev/null 2>&1
 
 # gvm - go version manager
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+
+
+# fzf fuzzy finder
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
