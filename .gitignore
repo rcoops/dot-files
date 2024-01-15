@@ -23,6 +23,7 @@
 !/.config
 /.config/*
 !/.config/nvim
+!/.config/setup.txt
 
 .zsh_sessions
 

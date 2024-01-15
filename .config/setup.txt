@@ -1,0 +1,51 @@
+set up touch id
+set up british keyboard (PC)
+register device with kandji (will need approval)
+log in to kandji, 1password, oktaverify, zscaler
+install firefox
+log in to mozilla account
+set up pinned tabs:
+	https://mail.google.com/mail/u/0/#inbox
+	https://calendar.google.com/calendar/u/0/r?pli=1
+	https://github.com/upside-energy/smarter-tariff/pulls
+	https://github.com/upside-energy/small-asset-management/pulls
+	https://d-9367785b48.awsapps.com/start#/
+copy .ssh
+install iTerm
+command line tools auto-installs when iTerm opens
+install zsh-syntax-highlighting
+	must do via git clone for oh my zsh
+install zsh-history-substring-search
+	must do via git clone for oh my zsh
+install font
+	https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k
+install powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+install fnm
+	curl -fsSL https://fnm.vercel.app/install | bash
+	remove/edit fnm init in .zshrc
+	add symlink nvm -> fnm
+install rust
+	https://rustup.rs/
+install homebrew (instructions on website)
+brew install neovim
+brew install thefuck
+brew install pyenv
+brew install fzf
+brew install exa
+brew install bat
+brew install ripgrep
+brew install dust
+brew tap cjbassi/ytop
+brew install ytop
+pyenv install 3.11
+pyenv install 3.12
+pyenv global 3.11
+install gvm
+	bash < <(curl -s -S -L https://raw.githubusercontent.co/moovweb/gvm/master/binscripts/gvm-installer)bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+install go from binary
+	gvm install <version> -B
+	gvm use <version> --default
+install tmux
+	make sure to use prefix+I to install plugins
+download notion & miro apps
