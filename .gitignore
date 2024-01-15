@@ -17,6 +17,7 @@
 # iterm profile
 !One Dark.itermcolors
 !iterm.json
+!.npmrc.example
 
 
 # nvim config

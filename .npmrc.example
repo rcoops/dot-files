@@ -1,0 +1,5 @@
+registry=https://upsideenergy.jfrog.io/artifactory/api/npm/npm/
+@upside:registry=https://upsideenergy.jfrog.io/artifactory/api/npm/npm/
+//upsideenergy.jfrog.io/artifactory/api/npm/npm/:_authToken=<authtoken>
+progress=false
+loglevel=verbose
