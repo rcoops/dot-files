@@ -9,6 +9,10 @@ export PATH="$HOME/.local/share/fnm:$HOME/.fnm:$CUSTOM_SCRIPTS_ROOT:$VES_SCRIPTS
 
 export PATH="$HOME/squashfs-root/usr/bin:$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH"
 
+if [ "$(uname -s)" = "Darwin" ] && [ -f "/opt/homebrew/bin/brew" ]; then
+	eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
 eval "$(pyenv init --path)"
 eval "$(pyenv virtualenv-init -)"
 
