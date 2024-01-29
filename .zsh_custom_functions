@@ -98,3 +98,7 @@ function publish {
   echo -e "${GREEN}$(git tag | grep "$LIB_PKG_NAME" | tail -1)${NC}"
 }
 
+function gbrc {
+  BRANCH="$(gbc)"
+  gcm && gbD "$BRANCH"
+}
