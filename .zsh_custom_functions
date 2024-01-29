@@ -58,3 +58,43 @@ function ggprc {
   gh pr create --reviewer upside-energy/funky-gibbons --title "$TITLE" --draft --body "$BODY"
 }
 
+function publish {
+  RED='\033[0;31m'
+  BLUE='\033[0;36m'
+  GREEN='\033[0;32m'
+  NC='\033[0m'
+
+  function updateStatus {
+    STATUS=$(aws codebuild batch-get-builds --ids "$BUILD_ID" --profile upside-build-admin | jq -r '.builds[0].buildStatus')
+  }
+
+  if [[ ! -f "./publish.sh" ]]; then
+    echo "Must be run in a directory with publish.sh"
+  fi
+
+  VERSION_BUMP="$1"
+  BUILD_ID=$(./publish.sh "$VERSION_BUMP" | jq -r '.build.id')
+
+  ORIGINAL_AWS_PROFILE="$AWS_PROFILE"
+  export AWS_PROFILE="upside-build-admin"
+
+  STATUS="IN_PROGRESS"
+  while [[ "$STATUS" == "IN_PROGRESS" ]]; do
+    printf "${RED}\r%s${NC}" "$STATUS"
+    sleep 5
+    printf "${BLUE}\r%s${NC}" " CHECKING  "
+    updateStatus
+  done
+
+  export AWS_PROFILE="$ORIGINAL_AWS_PROFILE"
+
+  printf "${GREEN}\r%s\n${NC}" "$STATUS       "
+
+  git fetch --tags > /dev/null 2>&1
+
+  LIB_PKG_NAME=$(cat setup.py | grep "package_name = " | sed -r 's/.*"(.*)"/\1/g')
+
+  echo -e "${BLUE}Version Published: ${NC}"
+  echo -e "${GREEN}$(git tag | grep "$LIB_PKG_NAME" | tail -1)${NC}"
+}
+
