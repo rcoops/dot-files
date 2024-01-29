@@ -13,39 +13,46 @@ set up pinned tabs:
 copy .ssh
 install iTerm
 command line tools auto-installs when iTerm opens
-install zsh-syntax-highlighting
-	must do via git clone for oh my zsh
-install zsh-history-substring-search
-	must do via git clone for oh my zsh
-install font
-	https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k
-install powerlevel10k
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+install homebrew (instructions on website)
+	https://brew.sh/
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew tap cjbassi/ytop
+brew install neovim thefuck pyenv fzf exa bat ripgrep dust ytop tmux
 install fnm
 	curl -fsSL https://fnm.vercel.app/install | bash
 	remove/edit fnm init in .zshrc
 	add symlink nvm -> fnm
+	node_versions=(16 18 20) for i in "$node_versions[@]"; do fnm install "$i"; done
+	fnm default 20
+configure npm
+	https://www.notion.so/krakenflex/Developer-Setup-515425f8f3d64ffcba82bada10a1602d?pvs=4#308154d1e1ce4111968e476066b6d1c4
 install rust
 	https://rustup.rs/
-install homebrew (instructions on website)
-brew install neovim
-brew install thefuck
-brew install pyenv
-brew install fzf
-brew install exa
-brew install bat
-brew install ripgrep
-brew install dust
-brew tap cjbassi/ytop
-brew install ytop
-pyenv install 3.11
-pyenv install 3.12
-pyenv global 3.11
-install gvm
-	bash < <(curl -s -S -L https://raw.githubusercontent.co/moovweb/gvm/master/binscripts/gvm-installer)bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
-install go from binary
-	gvm install <version> -B
-	gvm use <version> --default
-install tmux
+	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+more pyenv
+	https://github.com/pyenv/pyenv-virtualenv
+	pyenv install 3.11 3.12
+	pyenv global 3.11
+install go
+	https://go.dev/doc/install
+configure tmux
 	make sure to use prefix+I to install plugins
-download notion & miro apps
+install aws cli
+	https://www.notion.so/krakenflex/Developer-Setup-515425f8f3d64ffcba82bada10a1602d?pvs=4#4c5a77b4d0344b52a0ad97d94f31e18f
+	https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+	curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
+	sudo installer -pkg ./AWSCLIV2.pkg -target /
+install font
+	https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k
+install oh-my-zsh
+	https://ohmyz.sh/#install
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+install zsh-syntax-highlighting
+	must do via git clone for oh my zsh
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+install zsh-history-substring-search
+	must do via git clone for oh my zsh
+	git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search
+install powerlevel10k
+	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+download notion, docker, vscode, miro
