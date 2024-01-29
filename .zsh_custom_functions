@@ -51,3 +51,10 @@ function auth_policy_for_user {
   upside-auth-managed-policy-describe "$(te)" "$USER_POLICY" no | jq '.'
 }
 
+function ggprc {
+  TITLE="${1:-$(git log --pretty=format:%s | head -1)}"
+  BODY=${2:-""}
+
+  gh pr create --reviewer upside-energy/funky-gibbons --title "$TITLE" --draft --body "$BODY"
+}
+
